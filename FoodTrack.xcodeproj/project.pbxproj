@@ -159,6 +159,7 @@
 		37395FF51BD7685400867E53 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Dan Bender";
 				TargetAttributes = {
@@ -415,6 +416,7 @@
 				373960211BD7685400867E53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		373960221BD7685400867E53 /* Build configuration list for PBXNativeTarget "FoodTrackTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +425,7 @@
 				373960241BD7685400867E53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
