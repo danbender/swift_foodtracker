@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  FoodTrack
-//
-//  Created by Dan Bender on 21/10/15.
-//  Copyright (c) 2015 Dan Bender. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
@@ -13,6 +5,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
 
     var searchController:UISearchController!
+    
+    var suggestedSearchFoods:[String] = []
+    var filteredSuggestedSearchFoods:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +26,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        allow access to callbacks that occur in searchbar
         self.searchController.searchBar.delegate = self
         
-//        ensure that the SearchResultsController is presented in the same ViewController 
+//        ensure that the SearchResultsController is presented in the same ViewController
         self.definesPresentationContext = true
+        
+        self.suggestedSearchFoods = ["apple", "bagel", "banana", "beer", "bread", "carrots", "cheddar cheese", "chicken breast", "chili with beans", "chocolate chip cookie", "coffee", "cola", "corn", "egg", "graham cracker", "granola bar", "green beans", "ground beef patty", "hot dog", "ice cream", "jelly doughnut", "ketchup", "milk", "mixed nuts", "mustard", "oatmeal", "orange juice", "peanut butter", "pizza", "pork chop", "potato", "potato chips", "pretzels", "raisins", "ranch salad dressing", "red wine", "rice", "salsa", "shrimp", "spaghetti", "spaghetti sauce", "tuna", "white wine", "yellow cake"]
     }
 
     override func didReceiveMemoryWarning() {
