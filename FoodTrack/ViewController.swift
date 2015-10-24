@@ -27,6 +27,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
         
         self.tableView.tableHeaderView = self.searchController.searchBar
+        
+//        allow access to callbacks that occur in searchbar
+        self.searchController.searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
