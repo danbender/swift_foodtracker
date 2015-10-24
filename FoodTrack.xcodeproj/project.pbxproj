@@ -14,6 +14,7 @@
 		3739600D1BD7685400867E53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3739600C1BD7685400867E53 /* Images.xcassets */; };
 		373960101BD7685400867E53 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3739600E1BD7685400867E53 /* LaunchScreen.xib */; };
 		3739601C1BD7685400867E53 /* FoodTrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739601B1BD7685400867E53 /* FoodTrackTests.swift */; };
+		3793E2991BDA0F0E001380B6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793E2981BDA0F0E001380B6 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		373960151BD7685400867E53 /* FoodTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3739601A1BD7685400867E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3739601B1BD7685400867E53 /* FoodTrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackTests.swift; sourceTree = "<group>"; };
+		3793E2981BDA0F0E001380B6 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				373960021BD7685400867E53 /* AppDelegate.swift */,
 				373960071BD7685400867E53 /* ViewController.swift */,
+				3793E2981BDA0F0E001380B6 /* DetailViewController.swift */,
 				373960091BD7685400867E53 /* Main.storyboard */,
 				3739600C1BD7685400867E53 /* Images.xcassets */,
 				3739600E1BD7685400867E53 /* LaunchScreen.xib */,
@@ -219,6 +222,7 @@
 				373960081BD7685400867E53 /* ViewController.swift in Sources */,
 				373960031BD7685400867E53 /* AppDelegate.swift in Sources */,
 				373960061BD7685400867E53 /* FoodTrack.xcdatamodeld in Sources */,
+				3793E2991BDA0F0E001380B6 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
