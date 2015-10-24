@@ -30,6 +30,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
 //        allow access to callbacks that occur in searchbar
         self.searchController.searchBar.delegate = self
+        
+//        ensure that the SearchResultsController is presented in the same ViewController 
+        self.definesPresentationContext = true
     }
 
     override func didReceiveMemoryWarning() {
