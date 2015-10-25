@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.searchController = UISearchController(searchResultsController: nil)
 
         self.searchController.searchResultsUpdater = self
-        self.searchController.dimsBackgroundDuringPresentation = true
+        self.searchController.dimsBackgroundDuringPresentation = false
         self.searchController.hidesNavigationBarDuringPresentation = true
         
         self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
@@ -75,6 +75,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //    Mark - UISearchResultsUpdating
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        let searchString = self.searchController.searchBar.text
+        let selectedScopeButtonIndex =  self.searchController.searchBar.selectedScopeButtonIndex
+
+            self.filterContentForSearch(searchString, scope: selectedScopeButtonIndex)
+        self.tableView.reloadData()
         
     }
 
