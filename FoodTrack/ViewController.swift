@@ -78,8 +78,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let searchString = self.searchController.searchBar.text
         let selectedScopeButtonIndex =  self.searchController.searchBar.selectedScopeButtonIndex
+        
+        if searchString == "" {
+            filteredSuggestedSearchFoods = suggestedSearchFoods
+        } else {
 
             self.filterContentForSearch(searchString, scope: selectedScopeButtonIndex)
+        }
+        
         self.tableView.reloadData()
         
     }
