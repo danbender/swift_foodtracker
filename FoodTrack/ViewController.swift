@@ -51,7 +51,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//               
+    
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+        var foodName : String
+    
+        if self.searchController.active {
+            
+            foodName = filteredSuggestedSearchFoods[indexPath.row]
+        
+        }
+        else {
+        
+            foodName = suggestedSearchFoods[indexPath.row]
+            
+        }
+        
+        cell.textLabel?.text = foodName
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
+        return cell
     }
     
     //    Mark - UISearchResultsUpdating
@@ -59,5 +77,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         
     }
+
+
+
+
+
+
+
+
 }
 
