@@ -3,6 +3,9 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    let kAppId = "395ab795"
+    let kAppKey = "cae93c2494dd20b59a8c5e2a14e8641c"
 
     var searchController:UISearchController!
     
@@ -116,7 +119,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //    GET Request from nutritionix API
     func makeRequest(searchString: String) {
         
-        let url = NSURL(string: "https://api.nutritionix.com/v1_1/search/\(searchString)?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=395ab795&appKey=cae93c2494dd20b59a8c5e2a14e8641c")
+        let url = NSURL(string: "https://api.nutritionix.com/v1_1/search/\(searchString)?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=\(kAppId)&appKey=\(kAppKey)")
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             
