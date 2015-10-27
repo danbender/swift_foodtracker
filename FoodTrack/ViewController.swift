@@ -104,6 +104,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         })
         
     }
+    
+//    Mark - UISearchBar Delegate
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        makeRequest(searchBar.text)
+    }
+    
+    
 
 //    GET Request from nutritionix API
     func makeRequest(searchString: String) {
@@ -112,7 +120,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             
-            println(data)
+            var stringData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            
+            println(stringData)
             println(response)
             println(error)
             
