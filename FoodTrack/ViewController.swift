@@ -36,6 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.definesPresentationContext = true
         
         self.suggestedSearchFoods = ["apple", "bagel", "banana", "beer", "bread", "carrots", "cheddar cheese", "chicken breast", "chili with beans", "chocolate chip cookie", "coffee", "cola", "corn", "egg", "graham cracker", "granola bar", "green beans", "ground beef patty", "hot dog", "ice cream", "jelly doughnut", "ketchup", "milk", "mixed nuts", "mustard", "oatmeal", "orange juice", "peanut butter", "pizza", "pork chop", "potato", "potato chips", "pretzels", "raisins", "ranch salad dressing", "red wine", "rice", "salsa", "shrimp", "spaghetti", "spaghetti sauce", "tuna", "white wine", "yellow cake"]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,7 +97,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
 
-    
     func filterContentForSearch (searchText:String, scope:Int) {
         self.filteredSuggestedSearchFoods = self.suggestedSearchFoods.filter({ (food:String) -> Bool in
             var foodMatch = food.rangeOfString(searchText)
@@ -105,10 +105,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
 
+//    GET Request from nutritionix API
+    func makeRequest(searchString: String) {
+        
+        let url = NSURL(string: "https://api.nutritionix.com/v1_1/search/\(searchString)?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=395ab795&appKey=cae93c2494dd20b59a8c5e2a14e8641c")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
+            
+            println(data)
+            println(response)
+            println(error)
+            
+        })
+        task.resume()
+    }
 
 
 
 
-
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
