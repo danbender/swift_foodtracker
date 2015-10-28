@@ -5,7 +5,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     let kAppId = "395ab795"
-    let kAppKey = "cae93c2494dd20b59a8c5e2a14e8641c"
+    let kAppKey = "504fa61f0f82ca719d34ec173c96f226"
 
     var searchController:UISearchController!
     
@@ -142,7 +142,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         request.HTTPMethod = "POST"
         
         var params = [
-            "appID" : kAppId,
+            "appId" : kAppId,
             "appKey" : kAppKey,
             "fields" : ["item_name", "brand_name", "keywords", "usda_fields"],
             "limit" : 50,
@@ -166,6 +166,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             println(jsonDictionary)
 
         })
+        
+        task.resume()
         
     }
 
