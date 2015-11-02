@@ -211,11 +211,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.jsonResponse = jsonDictionary!
                     
                     self.apiSearchForFoods = DataController.jsonAsUSDAIdAndNameSearchResults(jsonDictionary!)
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.tableView.reloadData()
+                    })
                   
                 }
                 else {
+                    
                     let errorString = NSString(data: data, encoding: NSUTF8StringEncoding)
                     println("Error could not parse JSON \(errorString)")
+                    
                 }
             }
 
