@@ -14,6 +14,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var scopeButtonTitles = ["Recommended", "Search Results", "Saved"]
     
+    var jsonResponse : NSDictionary!
+    var apiSearchForFoods:[(name:String, idValue: String)] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -172,6 +175,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             else {
                 if jsonDictionary != nil {
+                    self.jsonResponse = jsonDictionary!
+                    
+                    self.apiSearchForFoods = DataController.jsonAsUSDAIdAndNameSearchResults(jsonDictionary!)
                   
                 }
                 else {
