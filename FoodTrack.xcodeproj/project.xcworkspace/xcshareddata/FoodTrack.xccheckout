@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>066A2463-0B7A-487D-A2D0-1DCECDFF64AC</string>
 	<key>IDESourceControlProjectName</key>
-	<string>FoodTrack</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F217FE21948D26513A6D9E576A3613A9B7D7F260</key>
 		<string>https://github.com/danbender/swift_foodtracker.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>FoodTrack.xcodeproj</string>
+	<string>FoodTrack.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F217FE21948D26513A6D9E576A3613A9B7D7F260</key>

@@ -114,6 +114,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //    Mark - UISearchBar Delegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        self.searchController.searchBar.selectedScopeButtonIndex = 1
         makeRequest(searchBar.text)
     }
     
