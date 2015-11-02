@@ -54,11 +54,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
-        if self.searchController.active {
-            return self.filteredSuggestedSearchFoods.count
+        let selectedScopeButtonIndex = self.searchController.searchBar.selectedScopeButtonIndex
+        
+        if selectedScopeButtonIndex == 0 {
+            
+            if self.searchController.active {
+                return self.filteredSuggestedSearchFoods.count
+            }
+            else {
+                return self.suggestedSearchFoods.count
+            }
+        }
+        else if selectedScopeButtonIndex == 1 {
+            
+            return self.apiSearchForFoods.count
+
         }
         else {
-            return self.suggestedSearchFoods.count
+            return 0
         }
         
     }
@@ -67,17 +80,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
         var foodName : String
-    
-        if self.searchController.active {
+        
+        let selectedScopeButtonIndex = self.searchController.searchBar.selectedScopeButtonIndex
+        
+        if selectedScopeButtonIndex == 0 {
             
-            foodName = filteredSuggestedSearchFoods[indexPath.row]
+            if self.searchController.active {
+                
+                foodName = filteredSuggestedSearchFoods[indexPath.row]
+                
+            }
+            else {
+                
+                foodName = suggestedSearchFoods[indexPath.row]
+                
+            }
+            
+        }
+        else if selectedScopeButtonIndex == 1 {
+            
+            foodName = apiSearchForFoods[indexPath.row].name
         
         }
         else {
-        
-            foodName = suggestedSearchFoods[indexPath.row]
             
+            foodName = ""
+        
         }
+    
+        
         
         cell.textLabel?.text = foodName
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
