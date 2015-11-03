@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    //    Mark - UITableViewDataSource
+    //    MARK - UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
@@ -116,7 +116,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    //    Mark - UISearchResultsUpdating
+    // MARK - UITableViewDelegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedScopeButtonIndex = self.searchController.searchBar.selectedScopeButtonIndex
+        if selectedScopeButtonIndex == 0 {
+            
+            var searchFoodName:String
+            if self.searchController.active {
+                searchFoodName = filteredSuggestedSearchFoods[indexPath.row]
+            }
+            else {
+                searchFoodName = suggestedSearchFoods[indexPath.row]
+            }
+            self.searchController.searchBar.selectedScopeButtonIndex = 1
+            makeRequest(searchFoodName)
+        
+        }
+        else if selectedScopeButtonIndex == 1 {
+        }
+        else if selectedScopeButtonIndex == 2 {
+        }
+    }
+    
+    
+    //    MARK - UISearchResultsUpdating
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         
@@ -124,7 +148,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let selectedScopeButtonIndex =  self.searchController.searchBar.selectedScopeButtonIndex
         
         if searchString == "" {
+            
             filteredSuggestedSearchFoods = suggestedSearchFoods
+        
         } else {
 
             self.filterContentForSearch(searchString, scope: selectedScopeButtonIndex)
@@ -142,7 +168,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-//    Mark - UISearchBar Delegate
+//    MARK - UISearchBar Delegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
