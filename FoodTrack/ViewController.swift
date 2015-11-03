@@ -86,26 +86,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if selectedScopeButtonIndex == 0 {
             
             if self.searchController.active {
-                
                 foodName = filteredSuggestedSearchFoods[indexPath.row]
-                
             }
             else {
-                
                 foodName = suggestedSearchFoods[indexPath.row]
-                
             }
             
         }
         else if selectedScopeButtonIndex == 1 {
-            
             foodName = apiSearchForFoods[indexPath.row].name
-        
         }
         else {
-            
             foodName = ""
-        
         }
     
         
