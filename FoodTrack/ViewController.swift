@@ -163,9 +163,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //    MARK - UISearchBar Delegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        
         self.searchController.searchBar.selectedScopeButtonIndex = 1
         makeRequest(searchBar.text)
+    }
+    
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        self.tableView.reloadData()
     }
     
     
