@@ -16,26 +16,20 @@ class DataController {
             let results:[AnyObject] = json["hits"]! as! [AnyObject]
             
             for itemDictionary in results {
-                
+
                 if itemDictionary["_id"] != nil {
-                    
                     if itemDictionary["fields"] != nil {
-                        
                         let fieldsDictionary = itemDictionary["fields"] as! NSDictionary
                         
                         if itemDictionary["item_name"] != nil {
-                            
                             let idValue:String = itemDictionary["_id"] as! String
                             let name:String = fieldsDictionary["item_name"] as! String
                             
                             searchResult = (name: name, idValue: idValue)
                             
                             usdaItemsSearchResults += [searchResult]
-                            
                         }
-                        
                     }
-                    
                 }
                 
             }
@@ -45,6 +39,12 @@ class DataController {
         return usdaItemsSearchResults
 
     }
+    
+    
+    
+    
+    
+    
     
     
 }
