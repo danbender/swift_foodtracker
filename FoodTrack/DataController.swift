@@ -41,9 +41,17 @@ class DataController {
     }
     
     
-    
-    
-    
+    func saveUSDAItemForId(idValue:String, json:NSDictionary) {
+        
+        if json["hits"] != nil {
+            let results:[AnyObject] = json["hits"]! as! [AnyObject]
+            
+            for itemDictionary in results {
+                
+            }
+        }
+        
+    }
     
     
     
