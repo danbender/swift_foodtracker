@@ -56,7 +56,7 @@ class DataController {
                     let predicate = NSPredicate(format: "idValue == %@", itemDictionaryId)
                     requestForUSDAItem.predicate = predicate
                     
-                    var error:NSError?
+                    var error: NSError?
                     var items = managedObjectContext?.executeFetchRequest(requestForUSDAItem, error: &error)
                     
                 }
