@@ -58,7 +58,7 @@ class DataController {
                     
                     var error: NSError?
                     var items = managedObjectContext?.executeFetchRequest(requestForUSDAItem, error: &error)
-//                    var count = managedObjectContext?.countForFetchRequest(requestForUSDAItem, error: &error)
+//                  var count = managedObjectContext?.countForFetchRequest(requestForUSDAItem, error: &error)
                    
                     if items?.count != 0 {
 //                        item is already saved
@@ -66,14 +66,39 @@ class DataController {
                     }
                     else {
                         print("Lets save this to CoreData!")
+                        
+                        let entityDescription = NSEntityDescription.entityForName("USDAItem", inManagedObjectContext: managedObjectContext!)
+                        let usdaItem = USDAItem(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
+                        
+                        usdaItem.idValue = itemDictionary["_id"]! as! String
+                        usdaItem.dateAdded = NSDate()
+                        
+                        if itemDictionary["fields"] != nil {
+                            let fieldsDictionary = itemDictionary["fields"]! as! NSDictionary
+                            
+                            if fieldsDictionary["item_name"] != nil {
+                                usdaItem.name = fieldsDictionary["item_name"]! as! String
+                            }
+                            
+                            if fieldsDictionary["usdaFields"] != nil {
+                                let usdaFieldsDictionary = fieldsDictionary["usda_fields"] as! NSDictionary
+                                
+                                if usdaFieldsDictionary["CA"] != nil {
+                                    let calciumDictionary = usdaFieldsDictionary["CA"]! as! NSDictionary
+                                    let calciumValue: AnyObject = calciumDictionary["value"]!
+                                    usdaItem.calcium = "\(calciumValue)"
+                                }
+                                else {
+                                    usdaItem.calcium = "0"
+                                }
+                            }
+                        }
                     }
-                    
                 }
             }
         }
-        
     }
-    
-    
-    
+
+
+
 }
