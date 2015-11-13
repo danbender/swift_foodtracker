@@ -65,7 +65,7 @@ class DataController {
                         return
                     }
                     else {
-                        print("Lets save this to CoreData!")
+                        print("Save this to CoreData!")
                         
                         let entityDescription = NSEntityDescription.entityForName("USDAItem", inManagedObjectContext: managedObjectContext!)
                         let usdaItem = USDAItem(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
