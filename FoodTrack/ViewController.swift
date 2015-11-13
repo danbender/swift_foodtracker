@@ -157,11 +157,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         }
         else if selectedScopeButtonIndex == 1 {
+            self.performSegueWithIdentifier("toDetailVCsegue", sender: nil)
             
             let idValue = apiSearchForFoods[indexPath.row].idValue
             self.dataController.saveUSDAItemForId(idValue, json: self.jsonResponse)
-            
-            
         }
         else if selectedScopeButtonIndex == 2 {
             if self.searchController.active {
