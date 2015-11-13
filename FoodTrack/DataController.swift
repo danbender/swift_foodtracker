@@ -83,6 +83,7 @@ class DataController {
                             if fieldsDictionary["usdaFields"] != nil {
                                 let usdaFieldsDictionary = fieldsDictionary["usda_fields"] as! NSDictionary
                                 
+                                
                                 if usdaFieldsDictionary["CA"] != nil {
                                     let calciumDictionary = usdaFieldsDictionary["CA"]! as! NSDictionary
                                     let calciumValue: AnyObject = calciumDictionary["value"]!
@@ -91,6 +92,7 @@ class DataController {
                                 else {
                                     usdaItem.calcium = "0"
                                 }
+                                
                                 
                                 if usdaFieldsDictionary["CHOCF"] != nil {
                                     let carbohydrateDictionary = usdaFieldsDictionary["CHOCF"] as! NSDictionary
@@ -102,6 +104,20 @@ class DataController {
                                 else {
                                     usdaItem.carbohydrate = "0"
                                 }
+                                
+                                
+                                if usdaFieldsDictionary["FAT"] != nil {
+                                    let fatTotalDictionary = usdaFieldsDictionary["FAT"] as! NSDictionary
+                                    if fatTotalDictionary["value"] != nil {
+                                        let fatTotalValue:AnyObject = fatTotalDictionary["value"]!
+                                        usdaItem.fatTotal = "\(fatTotalValue)"
+                                    }
+                                    else {
+                                        usdaItem.fatTotal = "0"
+                                    }
+                                }
+                                
+                                
                             }
                         }
                     }
