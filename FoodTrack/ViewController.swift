@@ -178,6 +178,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
+        if selectedScope == 2 {
+            requestFavoritedUSDAItems()
+        }
         self.tableView.reloadData()
     }
     
@@ -270,7 +274,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let appDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let managedObjectContext = appDelegate.managedObjectContext
         
-        self.favoritedUSDAItems = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as! [USDAItem]   
+        self.favoritedUSDAItems = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as! [USDAItem]
     }
 
 
