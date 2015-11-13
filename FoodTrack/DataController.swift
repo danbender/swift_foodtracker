@@ -118,6 +118,19 @@ class DataController {
                                 }
                                 
                                 
+                                if usdaFieldsDictionary["CHOLE"] != nil {
+                                    let cholesterolDictionary = usdaFieldsDictionary["CHOLE"] as! NSDictionary
+                                    if cholesterolDictionary["value"] != nil {
+                                        let cholesterolValue:AnyObject = cholesterolDictionary ["value"]!
+                                        usdaItem.cholesterol = "\(cholesterolValue)"
+                                    }
+                                    else {
+                                        usdaItem.cholesterol = "0"
+                                    }
+                                }
+                                
+                                
+                                
                             }
                         }
                     }
