@@ -142,6 +142,31 @@ class DataController {
                                 }
                                 
                                 
+                                if usdaFieldsDictionary["SUGAR"] != nil {
+                                    let sugarDictionary = usdaFieldsDictionary["SUGAR"]! as! NSDictionary
+                                    if sugarDictionary["value"] != nil {
+                                        let sugarValue:AnyObject = sugarDictionary["value"]!
+                                        usdaItem.sugar = "\(sugarValue)"
+                                    }
+                                    else {
+                                        usdaItem.sugar = "0"
+                                    }
+                                }
+                                
+                                
+                                if usdaFieldsDictionary["VITC"] != nil {
+                                    let vitaminCDictionary = usdaFieldsDictionary["VITC"]! as! NSDictionary
+                                    if vitaminCDictionary["value"] != nil {
+                                        let vitaminCValue:AnyObject = vitaminCDictionary["value"]!
+                                        usdaItem.vitaminC = "\(vitaminCValue)"
+                                    }
+                                    else {
+                                        usdaItem.vitaminC = "0"
+                                    }
+                                }
+                                
+                                
+                                
                                 
                             }
                         }
