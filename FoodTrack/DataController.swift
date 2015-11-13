@@ -91,6 +91,17 @@ class DataController {
                                 else {
                                     usdaItem.calcium = "0"
                                 }
+                                
+                                if usdaFieldsDictionary["CHOCF"] != nil {
+                                    let carbohydrateDictionary = usdaFieldsDictionary["CHOCF"] as! NSDictionary
+                                    if carbohydrateDictionary["value"] != nil {
+                                        let carbohydrateValue: AnyObject = carbohydrateDictionary["Value"]!
+                                        usdaItem.carbohydrate = "\(carbohydrateValue)"
+                                    }
+                                }
+                                else {
+                                    usdaItem.carbohydrate = "0"
+                                }
                             }
                         }
                     }
