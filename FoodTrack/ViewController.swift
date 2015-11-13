@@ -11,11 +11,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var suggestedSearchFoods:[String] = []
     var filteredSuggestedSearchFoods:[String] = []
-    
+
+    var apiSearchForFoods:[(name:String, idValue: String)] = []
+
     var scopeButtonTitles = ["Recommended", "Search Results", "Saved"]
     
     var jsonResponse : NSDictionary!
-    var apiSearchForFoods:[(name:String, idValue: String)] = []
+    
+    var dataController = DataController()
+    
     
     
     override func viewDidLoad() {
@@ -126,6 +130,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         }
         else if selectedScopeButtonIndex == 1 {
+            
+            let idValue = apiSearchForFoods[indexPath.row].idValue
+            self.dataController.saveUSDAItemForId(idValue, json: self.jsonResponse)
+            
+            
         }
         else if selectedScopeButtonIndex == 2 {
         }

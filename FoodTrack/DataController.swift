@@ -61,11 +61,11 @@ class DataController {
 //                  var count = managedObjectContext?.countForFetchRequest(requestForUSDAItem, error: &error)
                    
                     if items?.count != 0 {
-//                        item is already saved
+                        print("the item was already saved!")
                         return
                     }
                     else {
-                        print("Save this to CoreData!")
+                        print("save this to CoreData!")
                         
                         let entityDescription = NSEntityDescription.entityForName("USDAItem", inManagedObjectContext: managedObjectContext!)
                         let usdaItem = USDAItem(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
