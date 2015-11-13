@@ -33,9 +33,30 @@ class DetailViewController: UIViewController {
     func usdaItemDidComplete(notification: NSNotification) {
         print("usdaItemDidComplete in DetailViewController")
         usdaItem = notification.object as? USDAItem
-        
     }
 
+    
     @IBAction func eatItBarButtonItemPressed(sender: UIBarButtonItem) {
+    }
+    
+    
+    func createAttributedString(usdaItem: USDAItem!) -> NSAttributedString {
+        var itemAttributedString = NSMutableAttributedString()
+        
+        var centeredParapgraphSTyle = NSMutableParagraphStyle()
+        centeredParapgraphSTyle.alignment = NSTextAlignment.Center
+        centeredParapgraphSTyle.lineSpacing = 10.0
+        
+        var titleAttributesDictionary = [
+            NSForegroundColorAttributeName: UIColor.blackColor(),
+            NSFontAttributeName: UIFont.boldSystemFontOfSize(22.0),
+            NSParagraphStyleAttributeName: centeredParapgraphSTyle
+        ]
+        
+        let titleString = NSAttributedString(string: "\(usdaItem.name)\n", attributes: titleAttributesDictionary)
+        
+        itemAttributedString.appendAttributedString(titleString)
+        
+        return itemAttributedString
     }
 }
