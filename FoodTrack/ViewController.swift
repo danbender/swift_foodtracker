@@ -110,11 +110,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             foodName = apiSearchForFoods[indexPath.row].name
         }
         else {
+//            TODO: if clicked field is empty. BUT it should show all until user has started typing
             if self.searchController.active {
                 foodName = self.filteredFavoritedUSDAItems[indexPath.row].name
             }
             else {
-                foodName = self.favoritedUSDAItems[indexPath.row].name                
+                foodName = self.favoritedUSDAItems[indexPath.row].name
             }
         }
     
