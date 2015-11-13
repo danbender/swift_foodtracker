@@ -79,8 +79,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         }
         else {
-            return self.favoritedUSDAItems.count
-            
+            if self.searchController.active {
+                return self.filteredFavoritedUSDAItems.count
+            }
+            else {
+                 return self.favoritedUSDAItems.count
+            }
         }
         
     }
