@@ -63,8 +63,42 @@ class DetailViewController: UIViewController {
         
         let titleString = NSAttributedString(string: "\(usdaItem.name)\n", attributes: titleAttributesDictionary)
         
+        var leftAlignedParagraphStyle = NSMutableParagraphStyle()
+        leftAlignedParagraphStyle.alignment = NSTextAlignment.Left
+        leftAlignedParagraphStyle.lineSpacing = 15.0
+        
+        var styleFirstWordAttributesDictionary = [
+            NSForegroundColorAttributeName: UIColor.blackColor(),
+            NSFontAttributeName: UIFont.boldSystemFontOfSize(18.0),
+            NSParagraphStyleAttributeName: leftAlignedParagraphStyle
+        ]
+        
+        var style1AttributesDictionary = [
+            NSForegroundColorAttributeName: UIColor.darkGrayColor(),
+            NSFontAttributeName: UIFont.systemFontOfSize(18.0),
+            NSParagraphStyleAttributeName: leftAlignedParagraphStyle
+        ]
+        
+        var style2AttributesDictionary = [
+            NSForegroundColorAttributeName: UIColor.lightGrayColor(),
+            NSFontAttributeName: UIFont.systemFontOfSize(18.0),
+            NSParagraphStyleAttributeName: leftAlignedParagraphStyle
+        ]
+        
+        
+        
         itemAttributedString.appendAttributedString(titleString)
         
         return itemAttributedString
     }
 }
+
+
+
+
+
+
+
+
+
+
