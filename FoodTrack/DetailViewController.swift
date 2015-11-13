@@ -17,6 +17,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    
+        if usdaItem != nil {
+            textView.attributedText = createAttributedString(usdaItem!)
+        }
     }
     
     deinit {
@@ -33,6 +37,10 @@ class DetailViewController: UIViewController {
     func usdaItemDidComplete(notification: NSNotification) {
         print("usdaItemDidComplete in DetailViewController")
         usdaItem = notification.object as? USDAItem
+        
+        if self.isViewLoaded() && self.view.window != nil {
+            textView.attributedText = createAttributedString(usdaItem!)
+        }
     }
 
     
