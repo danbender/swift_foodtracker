@@ -166,7 +166,16 @@ class DataController {
                                 }
                                 
                                 
-                                
+                                if usdaFieldsDictionary["ENERC_KCAL"] != nil {
+                                    let energyDictionary = usdaFieldsDictionary["ENERC_KCAL"]! as! NSDictionary
+                                    if energyDictionary["value"] != nil {
+                                        let energyValue:AnyObject = energyDictionary["value"]!
+                                        usdaItem.energy = "\(energyValue)"
+                                    }
+                                    else {
+                                        usdaItem.energy = "0"
+                                    }
+                                }
                                 
                             }
                         }
