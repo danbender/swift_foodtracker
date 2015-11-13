@@ -85,6 +85,20 @@ class DetailViewController: UIViewController {
             NSParagraphStyleAttributeName: leftAlignedParagraphStyle
         ]
         
+        let calciumTitleString = NSAttributedString(string: "Calcium ", attributes: styleFirstWordAttributesDictionary)
+        let calciumBodyString = NSAttributedString(string: "\(usdaItem.calcium)% \n", attributes: style1AttributesDictionary)
+        itemAttributedString.appendAttributedString(calciumTitleString)
+        itemAttributedString.appendAttributedString(calciumBodyString)
+        
+        let carbohydrateTitleString = NSAttributedString(string: "Carbs ", attributes: styleFirstWordAttributesDictionary)
+        let carbohydrateBodyString = NSAttributedString(string: "\(usdaItem.carbohydrate)% \n", attributes: style2AttributesDictionary)
+        itemAttributedString.appendAttributedString(carbohydrateTitleString)
+        itemAttributedString.appendAttributedString(carbohydrateBodyString)
+        
+        let cholesterolTitleString = NSAttributedString(string: "Cholesterol ", attributes: styleFirstWordAttributesDictionary)
+        let cholesterolBodyString = NSAttributedString(string: "\(usdaItem.cholesterol)% \n", attributes: style1AttributesDictionary)
+        itemAttributedString.appendAttributedString(cholesterolTitleString)
+        itemAttributedString.appendAttributedString(cholesterolBodyString)
         
         
         itemAttributedString.appendAttributedString(titleString)
