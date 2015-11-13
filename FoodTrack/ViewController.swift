@@ -76,7 +76,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         }
         else {
-            return 0
+            return self.favoritedUSDAItems.count
+            
         }
         
     }
