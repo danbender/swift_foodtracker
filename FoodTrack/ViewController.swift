@@ -103,7 +103,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             foodName = apiSearchForFoods[indexPath.row].name
         }
         else {
-            foodName = ""
+            foodName = self.favoritedUSDAItems[indexPath.row].name
         }
     
         
