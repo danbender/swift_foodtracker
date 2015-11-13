@@ -18,6 +18,12 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -25,6 +31,7 @@ class DetailViewController: UIViewController {
     }
     
     func usdaItemDidComplete(notification: NSNotification) {
+        print("usdaItemDidComplete in DetailViewController")
         usdaItem = notification.object as? USDAItem
         
     }
