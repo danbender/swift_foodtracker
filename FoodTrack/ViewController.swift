@@ -110,7 +110,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             foodName = apiSearchForFoods[indexPath.row].name
         }
         else {
-            foodName = self.favoritedUSDAItems[indexPath.row].name
+            if self.searchController.active {
+                foodName = self.filteredFavoritedUSDAItems[indexPath.row].name
+            }
+            else {
+                foodName = self.favoritedUSDAItems[indexPath.row].name                
+            }
         }
     
         
